@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Scripts</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet">
+  </head>
+  <body class="scripts-body">
+    <h1 class="sponge-text">SpOnGiFy YoUr TeXt</h1>
+    <div class="">
+        <textarea id="myText" placeholder="please enter text here..." rows="8" cols="30"></textarea>
+    </div>
+
+    <button class="butn" onclick="toWeirdCase()">SUBMIT</button>
+    <script>
+
+      function toWeirdCase() {
+        var string = document.getElementById("myText").value;
+        var splitStr = string.split(" ");
+        var newArr = [];
+
+        for (var j = 0; j < splitStr.length; j++) {
+          var letters = splitStr[j].split("");
+          for (var i = 0; i < letters.length; i++) {
+            if (letters.indexOf(letters[i]) % 2 === 0) {
+              letters[i] = letters[i].toUpperCase();
+            }
+          }
+          newArr.push(letters.join(""));
+        }
+        var finalResult = (newArr.join(" "));
+        document.getElementById("text").innerHTML = finalResult;
+      }
+    </script>
+
+    <p title="Copy Text" id="text"></p>
+
+    <button class="butn" onclick="copyText('text')">Copy text</button>
+
+    <script>
+      function copyText(id) {
+        var text = document.getElementById(id).innerText;
+        var elem = document.createElement("textarea");
+        document.body.appendChild(elem);
+        elem.value = text;
+        elem.select();
+        document.execCommand("copy");
+        document.body.removeChild(elem);
+      }
+
+    </script>
+
+  </body>
+</html>
