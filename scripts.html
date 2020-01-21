@@ -10,14 +10,14 @@
   <body class="scripts-body">
     <h1 class="sponge-text">SpOnGiFy YoUr TeXt</h1>
     <div class="">
-        <textarea id="myText" placeholder="please enter text here..." rows="8" cols="30"></textarea>
+        <textarea id="myText" placeholder="please enter text here..." onchange='this.value=this.value.toLowerCase();' rows="8" cols="30"></textarea>
     </div>
 
     <button class="butn" onclick="toWeirdCase()">SUBMIT</button>
     <script>
 
       function toWeirdCase() {
-        var string = document.getElementById("myText").toLowerCase().value;
+        var string = document.getElementById("myText").value;
         var splitStr = string.split(" ");
         var newArr = [];
 
